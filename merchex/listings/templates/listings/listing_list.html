@@ -1,0 +1,14 @@
+{% extends 'listings/base.html' %}
+
+{% block content %}
+
+    <h1>Annonces</h1>
+        <p>Voici la liste des {{ listings|length }} annonces pour les articles :</p>
+            <ul>
+                {% for listing in listings %}
+                    <li><a href="{% url 'listing-detail' listing.id %}">{{ listing.title }}</a></li>
+                {% endfor %}
+            </ul>
+
+            <a href="{% url 'listing-create' %}">Ajoutez une nouvelle annonce</a>
+{% endblock %}

@@ -1,9 +1,13 @@
-<html>
-    <head>
-        <title>Merchex</title>
-    </head>
-    <body>
+{% extends 'listings/base.html' %}
+
+{% block content %}
+
         <h1>Contact</h1>
             <p>Vous pouvez nous contacter via ce formulaire de contact :</p>
-    </body>
-</html>
+            
+            <form action="" method="post" novalidate>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Envoyer">
+            </form>
+{% endblock %}

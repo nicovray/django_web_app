@@ -1,0 +1,28 @@
+{% extends 'listings/base.html' %}
+
+{% block content %}
+
+    <h1>Groupes</h1>
+        <p>Mes
+            {% if bands|length < 5 %}
+            peu de
+            {% elif bands|length < 10 %}
+            quelques
+            {% else %}
+            nombreux
+            {% endif %} 
+            groupes préférés sont :
+        </p>
+
+        <a href="{% url 'band-create' %}">Ajoutez un nouveau groupe</a>
+
+        <ul>
+            {% for band in bands %}
+            <li>
+                <a href="{% url 'band-detail' band.id %}">{{ band.name|upper}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+            
+{% endblock %}
